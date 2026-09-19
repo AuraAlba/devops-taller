@@ -41,7 +41,7 @@ Al finalizar el taller, el proyecto deberá tener:
 ## 1. Estructura inicial
 
 ```text
-calculadora-devops/
+DevOps_WorkShop/
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
@@ -87,7 +87,7 @@ git clone URL_DEL_REPOSITORIO
 Ingresa a la carpeta:
 
 ```bash
-cd calculadora-devops
+cd DevOps_WorkShop
 ```
 
 Abre el proyecto en Visual Studio Code:
@@ -188,20 +188,6 @@ Este healthcheck es una comprobación sencilla implementada dentro de la aplicac
 
 ## 8. Agregar la función de suma
 
-Abre:
-
-```text
-calculator.py
-```
-
-Agrega:
-
-```python
-def suma(a, b):
-    """Suma dos números."""
-    return a + b
-```
-
 La función debe recibir dos números y devolver su suma.
 
 Ejemplo:
@@ -220,16 +206,7 @@ Resultado:
 
 ## 9. Agregar la función de división
 
-En `calculator.py`, agrega:
-
-```python
-def division(a, b):
-    """Divide dos números y controla la división entre cero."""
-    if b == 0:
-        raise ValueError("No se puede dividir entre cero")
-
-    return a / b
-```
+En `calculator.py`,
 
 La función debe:
 
@@ -244,10 +221,6 @@ La función debe:
 Ahora modifica `main.py`.
 
 Agrega las nuevas funciones a la importación:
-
-```python
-from calculator import division, multiplicacion, resta, suma
-```
 
 Agrega las opciones:
 
@@ -268,48 +241,7 @@ La interfaz debe permitir utilizar las cuatro operaciones.
 
 ## 11. Crear la prueba de suma
 
-Abre:
-
-```text
-test_calculator.py
-```
-
-Agrega `suma` a la importación:
-
-```python
-from calculator import division, multiplicacion, resta, suma
-```
-
-Después agrega:
-
-```python
-def test_suma():
-    assert suma(10, 5) == 15
-```
-
----
-
 ## 12. Crear las pruebas de división
-
-Asegúrate de importar `pytest`:
-
-```python
-import pytest
-```
-
-Agrega:
-
-```python
-def test_division():
-    assert division(10, 2) == 5
-
-
-def test_division_by_zero():
-    with pytest.raises(ValueError):
-        division(10, 0)
-```
-
----
 
 ## 13. Ejecutar las pruebas localmente
 
@@ -324,7 +256,7 @@ Todas las pruebas deberán pasar.
 El número de pruebas esperado después de completar el ejercicio será:
 
 ```text
-4 passed
+5 passed
 ```
 
 ### Evidencia 1
@@ -436,7 +368,7 @@ CMD ["python", "main.py"]
 Ejecuta:
 
 ```bash
-docker build -t calculadora-devops .
+docker build -t DevOps_WorkShop .
 ```
 
 Comprueba que la imagen exista:
@@ -456,7 +388,7 @@ Incluye una captura donde se observe la construcción exitosa de la imagen Docke
 Ejecuta:
 
 ```bash
-docker run -it calculadora-devops
+docker run -it DevOps_WorkShop
 ```
 
 La aplicación deberá mostrar su menú.
@@ -483,7 +415,7 @@ Después del paso de pruebas, agrega un paso para construir la imagen:
 
 ```yaml
       - name: Construir imagen Docker
-        run: docker build -t calculadora-devops .
+        run: docker build -t DevOps_WorkShop .
 ```
 
 El pipeline tendrá ahora:
